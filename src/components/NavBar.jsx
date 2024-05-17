@@ -1,11 +1,11 @@
-import { Button } from '@mui/material';
+import { Box } from '@mui/material';
 import medifyLogo from '../assets/medify-logo.png';
 import { MedifyBlueButton, MedifyTransparentButton } from './MedifyButton';
 
 export default function NavBar(){
 
     return (
-        <div className='menu'>
+        <Box display='flex' justifyContent='space-between' alignItems='center'>
             <div style={{display:'inherit'}}>
                 <img src={medifyLogo} alt='medify logo' style={{width:24, height:24, padding:'1rem 0.25rem'}}/>
                 <p style={{fontWeight:'bolder', color:'#2AA8FF'}}>Medify</p>
@@ -18,7 +18,7 @@ export default function NavBar(){
                 <MedifyTransparentButton>Software for Providers</MedifyTransparentButton>
                 <MedifyBlueButton>My Bookings</MedifyBlueButton>
             </div>
-        </div>
+        </Box>
     )
     // return (
     //     <Box >
