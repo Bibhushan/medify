@@ -1,7 +1,6 @@
-import { Box, Grid } from "@mui/material";
-import { fontWeight } from "@mui/system";
+import { Grid } from "@mui/material";
 import heroImage from '../assets/hero_image.png';
-import { MedifyBlueButton } from "./MedifyButton";
+import { MedifyBlueButton } from "./CustomComponents";
 
 export default function HeroSection({topText, middleNormal, middleHighlight, bottomText}){
 
