@@ -1,21 +1,22 @@
-import { AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
+import { Button } from '@mui/material';
 import medifyLogo from '../assets/medify-logo.png';
+import { MedifyBlueButton, MedifyTransparentButton } from './MedifyButton';
 
 export default function NavBar(){
 
     return (
         <div className='menu'>
             <div style={{display:'inherit'}}>
-                <img src={medifyLogo} style={{width:24, height:24, padding:'1rem 0.25rem'}}/>
+                <img src={medifyLogo} alt='medify logo' style={{width:24, height:24, padding:'1rem 0.25rem'}}/>
                 <p style={{fontWeight:'bolder', color:'#2AA8FF'}}>Medify</p>
             </div>            
             <div style={{display:'inherit'}}>
-                <div className='menu-item'>Find Doctors</div>
-                <div className='menu-item'>Hospitals</div>
-                <div className='menu-item'>Medicines</div>
-                <div className='menu-item'>Surgeries</div>
-                <div className='menu-item'>Software for Providers</div>
-                <div className='menu-item'>My Bookings</div>
+                <MedifyTransparentButton>Find Doctors</MedifyTransparentButton>
+                <MedifyTransparentButton>Hospitals</MedifyTransparentButton>
+                <MedifyTransparentButton>Medicines</MedifyTransparentButton>
+                <MedifyTransparentButton>Surgeries</MedifyTransparentButton>
+                <MedifyTransparentButton>Software for Providers</MedifyTransparentButton>
+                <MedifyBlueButton>My Bookings</MedifyBlueButton>
             </div>
         </div>
     )

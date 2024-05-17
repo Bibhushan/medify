@@ -3,6 +3,15 @@
     color: white;
 }
 
+.blue-button {
+    background-color: #2AA8FF;
+    border-radius: 8px;
+    border:none;
+    color: white;
+    padding: 0.25rem 1rem;
+    text-transform: none;
+}
+
 .menu {
     display: flex;
     text-align: center;
@@ -14,4 +23,11 @@
 .menu-item {
     font-size: 14px;
     padding: 1rem;
+    text-transform: none;
+}
+
+.flex-div {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
