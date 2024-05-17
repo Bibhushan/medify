@@ -2,3 +2,16 @@
     background-color:#2AA7FF;
     color: white;
 }
+
+.menu {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.menu-item {
+    font-size: 14px;
+    padding: 1rem;
+}
