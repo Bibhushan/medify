@@ -1,20 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Footer from './components/Footer';
 import './index.css';
 import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <div style={{fontSize:12, padding:4, backgroundColor:'#2AA7FF', color:'white', textAlign:'center'}}>
-        <p>The health and well-being of our patients and their health care team will always be our priority, 
-            so we follow the best practices for cleanliness.
-        </p>
-    </div>
+  <React.StrictMode>    
     <App />
-    <Footer/>
   </React.StrictMode>
 );
 

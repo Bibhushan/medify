@@ -8,9 +8,9 @@ import iconPintrest from '../assets/iconPintrest.png';
 export default function Footer(){
 
     return(
-        <Box sx={{backgroundColor:'#1B3C74', padding:'2rem 5rem', color:'white'}}>
-            <Box display='flex'>
-                <Box sx={{alignContent:'space-between', minWidth:200, width:240}}>
+        <Box sx={{backgroundColor:'#1B3C74', padding:'2rem 5rem', color:'white', textAlign:'left'}}>
+            <Box display='flex' marginBottom='2rem'>
+                <Box display='grid' sx={{alignContent:'space-between', minWidth:200, width:240}}>
                     <MedifyLogo/>
                     <Box>
                         <SocialMediaLogo logo={iconFacebook} logoName='facebook'/>
@@ -20,7 +20,7 @@ export default function Footer(){
                     </Box>
                 </Box>
                 <Grid container spacing={2} style={{fontSize:12}}>
-                    <Grid item md={4} sx={{marginBottom:'1rem'}}>
+                    <Grid item md={4}>
                         <p>{">   About Us"}</p>
                         <p>{">   Out Pricing"}</p>
                         <p>{">   Our Gallery"}</p>
