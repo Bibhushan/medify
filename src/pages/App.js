@@ -1,4 +1,5 @@
 import AppDownload from '../components/AppDownload';
+import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import './App.css';
 import HomePage from './HomePage.jsx';
@@ -12,6 +13,7 @@ function App() {
         </p>
       </div>
       <HomePage/>
+      <FAQ/>      
       <AppDownload />
       <Footer />
     </div>

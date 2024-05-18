@@ -1,7 +1,8 @@
-import { Box, Grid, InputAdornment, TextField } from "@mui/material"
+import { Box, Button, Container, Grid, InputAdornment, TextField } from "@mui/material"
 import downloadAppImage from '../assets/download-App.png';
 // import vectorImage from '../assets/Vector.png';
 import { MedifyBlueButton } from "./CustomComponents";
+import './styles.css';
 
 export default function AppDownload(){
 
@@ -14,9 +15,10 @@ export default function AppDownload(){
                 </Grid>
                 <Grid item md={6} textAlign='left' padding='2rem' display='grid'>
                     <Box >
-                        <p style={{color:'#1B3C74', fontSize:30, fontWeight:600}}>Download the <br/><span style={{color:'#2AA7FF'}}> Medify </span> App</p> 
+                        <p className="section-heading">Download the <br/><span style={{color:'#2AA7FF'}}> Medify </span> App</p> 
                         <h6>Get the link to download the app</h6>
                         <Box display='flex'>
+                        {/* TODO handle phone number input */}
                         <TextField
                             sx={{ m: 1, width: 250 }}
                             InputProps={{
@@ -25,6 +27,15 @@ export default function AppDownload(){
                             />
                             <MedifyBlueButton>Send SMS</MedifyBlueButton>
                         </Box>
+                        {/* TODO Style and implement download buttons */}
+                        <Container>
+                            <Button>
+                                Google Play
+                            </Button>
+                            <Button>
+                                App Store
+                            </Button>
+                        </Container>
                     </Box>                   
                 </Grid>
             </Grid>
