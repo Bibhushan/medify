@@ -36,7 +36,7 @@ export default function FAQ(){
                 </Grid>
                 <Grid item md={6} sx={{padding:'2rem'}}>
                     <Box sx={{textAlign:'left', marginTop:'2rem', fontSize:12}}>
-                        {faqs.map((item)=>(<FAQItem question={item.question}/>))}
+                        {faqs.map((item, index)=>(<FAQItem question={item.question} key={'faq'+index}/>))}
                     </Box>
                 </Grid>
             </Grid>            

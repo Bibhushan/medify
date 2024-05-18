@@ -5,10 +5,11 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 import SearchHospitals from "../components/SearchHospitals";
+import useLocalStorage from 'use-local-storage';
 
 export default function HomePage(){
 
-    const [stateNames, setStateNames] = useState([]);
+    const [stateNames, setStateNames] = useLocalStorage('StateNames', "");
 
     const [isSearchOpen, setSearchOpen] = useState(false);
 
@@ -22,7 +23,8 @@ export default function HomePage(){
 
     const fetchStates = async ()=>{
         try{
-            const fetchStates = await axios.get('https://meddata-backend.onrender.com/states')            
+            const fetchStates = await axios.get('https://meddata-backend.onrender.com/states') 
+            localStorage.setItem('StateNames', stateNames);           
             setStateNames(fetchStates.data);
         }
         catch (e){

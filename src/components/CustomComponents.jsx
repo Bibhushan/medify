@@ -8,7 +8,11 @@ const MedifyBlueButton = styled(Button)({
     borderRadius: '8px',
     color: 'white',
     padding: '0.25rem 1rem',
-    margin: '0.25rem'
+    margin: '0.25rem',
+    '&:hover': {
+        backgroundColor: '#2AA8FF',
+        color: 'white'
+    }
 });
 
 const MedifyTransparentButton = styled(Button)({

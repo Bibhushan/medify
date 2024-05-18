@@ -45,3 +45,11 @@
     margin: 6px;
 }
 
+.hospital-card {
+    background-color: white;
+    margin: 1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    text-align: left;
+}

@@ -1,14 +1,11 @@
-import { Autocomplete, Box, Modal, TextField } from "@mui/material";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { MedifyBlueButton } from "./CustomComponents";
+import { Box, Modal } from "@mui/material";
 import docIcon from '../assets/icons/Doctor.png';
 import labIcon from '../assets/icons/Drugstore.png';
 import hospitalIcon from '../assets/icons/Hospital.png';
 import medicineIcon from '../assets/icons/Capsule.png';
-import ambulanceIcon from '../assets/icons/Ambulance.png';
- 
+import ambulanceIcon from '../assets/icons/Ambulance.png'; 
 import IconCard from "./IconCard";
+import SearchControls from "./SearchControls";
 
 const style = {
     position: 'absolute',
@@ -23,11 +20,7 @@ const style = {
   };
 
 
-export default function SearchHospitals({isOpen, handleCancel, stateNames}){
-
-    const [stateName, setStateName] = useState(null);
-    const [cityNames, setCityNames] = useState(null);
-    const [cityName, setCityName] = useState(null);
+export default function SearchHospitals({isOpen, handleCancel}){
 
     const searchTypes = [
         {icon: docIcon, name:'Doctor', selected:false},
@@ -36,45 +29,11 @@ export default function SearchHospitals({isOpen, handleCancel, stateNames}){
         {icon: medicineIcon, name:'Medical Store', selected:false},
         {icon: ambulanceIcon, name:'Ambulance', selected:false},    
     ]
-
-    const handleStateSelect =(event, newState)=>{
-        setStateName(newState);
-        console.log('state name:', stateName);
-    }
-
-    const handleCitySelect = (event, newCity)=>{
-        setCityName(newCity);
-        console.log('city name:', cityName);
-    }
-
-    const fetchCityNames = async()=>{
-        const fetchCities = await axios.get('https://meddata-backend.onrender.com/cities/' + stateName)
-        console.log('cities for ', stateName, ' : ', fetchCities.data);
-        setCityNames(fetchCities.data);
-    }
-
-    useEffect(()=>{
-        fetchCityNames();
-    }, [stateName])
-
+    
     return(
         <Modal open={isOpen} onClose={handleCancel}>
             <Box sx={style} borderRadius='12px' minWidth={900}>
-                <Box display='flex' justifyContent='space-around' alignItems='center' margin='6px'>
-                    <Autocomplete 
-                        options={stateNames}
-                        renderInput={(params) => <TextField {...params} label="State" />}
-                        sx={{width:250, margin:'1rem'}}
-                        onChange={handleStateSelect}
-                    />
-                    <Autocomplete 
-                        options={cityNames}
-                        renderInput={(params) => <TextField {...params} label="City" />}
-                        sx={{width:250, margin:'1rem'}}
-                        onChange={handleCitySelect}
-                    />
-                    <MedifyBlueButton sx={{height:50, justifySelf:'right'}}>Search</MedifyBlueButton>
-                </Box>
+                <SearchControls state={null} city={null} navigateToSearch={true}/>                
                 <Box justifyItems='center' textAlign='center'>
                     <p style={{fontSize:'16', fontWeight:'bold'}}>You may be looking for</p>
                     <Box display='flex' justifyContent='space-evenly' alignItems='center'>
