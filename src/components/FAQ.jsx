@@ -32,7 +32,7 @@ export default function FAQ(){
             <p className="section-heading">Frequently Asked Questions</p>
             <Grid container spacing={2}>
                 <Grid item md={6} style={{justifyItems:'right'}}>
-                    <img src={faq} alt='faq' style={{maxWidth:480, width:'auto'}}></img>
+                    <img src={faq} alt='faq' style={{maxWidth:'100%', maxHeight:480}}></img>
                 </Grid>
                 <Grid item md={6} sx={{padding:'2rem'}}>
                     <Box sx={{textAlign:'left', marginTop:'2rem', fontSize:12}}>

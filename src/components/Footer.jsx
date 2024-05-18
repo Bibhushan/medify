@@ -1,9 +1,9 @@
 import { Box, Divider, Grid } from "@mui/material";
 import { Copyright, MedifyLogo, SocialMediaLogo } from "./CustomComponents";
-import iconFacebook from '../assets/iconFacebook.png';
-import iconTwitter from '../assets/iconTwitter.png';
-import iconYoutube from '../assets/iconYoutube.png';
-import iconPintrest from '../assets/iconPintrest.png';
+import iconFacebook from '../assets/icons/iconFacebook.png';
+import iconTwitter from '../assets/icons/iconTwitter.png';
+import iconYoutube from '../assets/icons/iconYoutube.png';
+import iconPintrest from '../assets/icons/iconPintrest.png';
 
 export default function Footer(){
 
