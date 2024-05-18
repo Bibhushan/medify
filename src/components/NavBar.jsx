@@ -4,7 +4,7 @@ import { MedifyBlueButton, MedifyLogo, MedifyTransparentButton } from './CustomC
 export default function NavBar(){
 
     return (
-        <Box display='flex' justifyContent='space-between' alignItems='center'>
+        <Box display='flex' justifyContent='space-between' alignItems='center' style={{padding:'1rem 2rem'}}>
             <MedifyLogo/>            
             <div style={{display:'inherit'}}>
                 <MedifyTransparentButton>Find Doctors</MedifyTransparentButton>

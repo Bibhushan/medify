@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 import SearchHospitals from "../components/SearchHospitals";
 import useLocalStorage from 'use-local-storage';
+import OffersSwiper from "../components/OffersSwiper";
+import SearchSpecialization from "../components/SearchBySpecialization";
 
 export default function HomePage(){
 
@@ -34,13 +36,13 @@ export default function HomePage(){
 
     useEffect(()=>{
         fetchStates();
-        console.log('state names: ', stateNames);            
+        // console.log('state names: ', stateNames);            
     }, [])
 
     return (
-        <div style={{padding:'1rem 2rem'}}>
+        <div >
             <SnackbarProvider/>
-            <NavBar />
+            <NavBar/>
             <HeroSection 
                 topText='Skip the travel! Find Online'
                 middleNormal='Medical'
@@ -48,6 +50,8 @@ export default function HomePage(){
                 bottomText='Connect instantly with a 24x7 specialist or choose to video visit a particular doctor.'
                 onSearch={openSearch}
             />
+            <OffersSwiper/>
+            <SearchSpecialization />
             <SearchHospitals isOpen={isSearchOpen} handleCancel={closeSearch} stateNames={stateNames}/>
         </div>
     )

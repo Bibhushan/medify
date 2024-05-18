@@ -1,9 +1,9 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Rating } from "@mui/material";
 import hospital2 from '../assets/icons/hospital2.png';
 import { MedifyBlueButton } from "./CustomComponents";
 import './styles.css';
 
-export default function HospitalCard({name, address, type}){
+export default function HospitalCard({name, address, city, state, zipCode, rating}){
     return(
         <Grid container className='hospital-card' spacing={2} margin='1rem'>
             <Grid item md={8}>
@@ -15,15 +15,16 @@ export default function HospitalCard({name, address, type}){
                     </Box>
                     <Box margin={1}>
                         <p style={{fontSize:20, fontWeight:600, color:'#14BEF0'}}>{name}</p>
-                        <p style={{fontSize:14, fontWeight:700}}>{address}</p>
-                        <p style={{fontSize:14}}>{type}</p>
+                        <p style={{fontSize:14, fontWeight:700}}>{`${city}, ${state}, ${zipCode}`}</p>
+                        <p style={{fontSize:14}}>{address}</p>
+                        <Rating name='rating' value={rating}/>
                     </Box>
                 </Box>
             </Grid>
             <Grid item md={4}>
                 <Box display='block' alignItems='center' justifyItems='end' textAlign='center'>
                     <p style={{fontSize:14, fontWeight:500, color:'#01A400', margin:'0.25rem'}}>Available Today</p>
-                    <MedifyBlueButton>Book FREE Center Visit</MedifyBlueButton>
+                    <MedifyBlueButton fontSize={14}>Book FREE Center Visit</MedifyBlueButton>
                 </Box>
             </Grid>
         </Grid>

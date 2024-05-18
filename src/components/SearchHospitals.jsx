@@ -6,7 +6,6 @@ import medicineIcon from '../assets/icons/Capsule.png';
 import ambulanceIcon from '../assets/icons/Ambulance.png'; 
 import IconCard from "./IconCard";
 import SearchControls from "./SearchControls";
-import { useMemo } from "react";
 
 const style = {
     position: 'absolute',

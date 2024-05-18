@@ -55,7 +55,15 @@ export default function SearchResults(){
                     </p>
                     <Grid container margin='1rem 0rem' spacing={2}>
                         <Grid item md={8}>
-                            {hospitals.map((hosp)=>(<HospitalCard name={hosp['Hospital Name']} address={hosp['Address']} type={hosp['Hospital Type']}/>))}
+                            {hospitals.map((hosp)=>(
+                            <HospitalCard 
+                                name={hosp['Hospital Name']} 
+                                address={hosp['Address']} 
+                                city={hosp['City']}
+                                state={hosp['State']}
+                                zipCode={hosp['ZIP Code']}
+                                rating={hosp['Hospital overall rating']}
+                            />))}
                         </Grid>
                         <Grid item md={4} display='flex'>
                             <Box borderRadius={12} margin='1rem' padding='0rem 1rem'>
