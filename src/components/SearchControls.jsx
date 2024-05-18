@@ -5,14 +5,14 @@ import { MedifyBlueButton } from "./CustomComponents";
 import axios from "axios";
 import { enqueueSnackbar } from "notistack";
 
-export default function SearchControls(){
+export default function SearchControls({location={stateName:null, cityName:null}, openSearchPage=false}){
 
     const navigate = useNavigate(null);
    
     const [stateNames, setStateNames] = useState([]);
-    const [stateName, setStateName] = useState(null);
+    const [stateName, setStateName] = useState(location.stateName);
     const [cityNames, setCityNames] = useState([]);
-    const [cityName, setCityName] = useState(null);
+    const [cityName, setCityName] = useState(location.cityName);
 
    const handleStateSelect =(event, newState)=>{
         setStateName(newState);
@@ -39,6 +39,7 @@ export default function SearchControls(){
     }, []);
 
     useEffect(()=>{
+        setCityName(null);
         fetchCityNames();
     }, [stateName])
 
@@ -56,11 +57,8 @@ export default function SearchControls(){
         localStorage.setItem('State', stateName);
         localStorage.setItem('City', cityName);
 
-        // if (searchHandler === null){
-            navigate('search', {state:{stateName:stateName, cityName:cityName}});
-        // } else {
-            // searchHandler();
-        // }
+        navigate('/search', {state:{stateName:stateName, cityName:cityName}});
+        
     }
 
     return(

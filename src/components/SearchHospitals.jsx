@@ -6,6 +6,7 @@ import medicineIcon from '../assets/icons/Capsule.png';
 import ambulanceIcon from '../assets/icons/Ambulance.png'; 
 import IconCard from "./IconCard";
 import SearchControls from "./SearchControls";
+import { useMemo } from "react";
 
 const style = {
     position: 'absolute',
@@ -19,21 +20,22 @@ const style = {
     p: 4
   };
 
+const searchTypeList = [
+    {icon: docIcon, name:'Doctor', selected:false},
+    {icon: labIcon, name:'Labs', selected:false},
+    {icon: hospitalIcon, name:'Hospital', selected:true},
+    {icon: medicineIcon, name:'Medical Store', selected:false},
+    {icon: ambulanceIcon, name:'Ambulance', selected:false},    
+];
 
 export default function SearchHospitals({isOpen, handleCancel}){
 
-    const searchTypes = [
-        {icon: docIcon, name:'Doctor', selected:false},
-        {icon: labIcon, name:'Labs', selected:false},
-        {icon: hospitalIcon, name:'Hospital', selected:true},
-        {icon: medicineIcon, name:'Medical Store', selected:false},
-        {icon: ambulanceIcon, name:'Ambulance', selected:false},    
-    ]
+    const searchTypes = searchTypeList;
     
     return(
         <Modal open={isOpen} onClose={handleCancel}>
             <Box sx={style} borderRadius='12px' minWidth={900}>
-                <SearchControls state={null} city={null} navigateToSearch={true}/>                
+                <SearchControls openSearchPage={true}/>                
                 <Box justifyItems='center' textAlign='center'>
                     <p style={{fontSize:'16', fontWeight:'bold'}}>You may be looking for</p>
                     <Box display='flex' justifyContent='space-evenly' alignItems='center'>

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import HospitalCard from "../components/HospitalCard";
 import SearchControls from "../components/SearchControls";
+import offer from '../assets/offers/Offer1.png';
 
 export default function SearchResults(){
 
@@ -42,19 +43,24 @@ export default function SearchResults(){
     // }
     
     return (
-        <Box>
-            <SearchControls/>
+        <Box padding='1rem'>
+            <SearchControls location={location.state} openSearchPage={false}/>
             {hospitals.length > 0 && 
                 <Box textAlign='left'>
-                    <p style={{fontSize:24, fontWeight:'bold', padding:'0.5rem 1rem'}}>
+                    <p style={{fontSize:24, fontWeight:'bold', padding:'0.5rem 1rem', margin:'0rem'}}>
                         {`${hospitals.length} medical center${ hospitals.length>1 ? 's' : ''} found in ${hospitals[0].City}.`}
                     </p>
-                    <Grid container>
+                    <p style={{fontSize:16, padding:'0rem 1rem', margin:'0rem'}}>
+                        Book appointments with minimum wait-time & verified doctor details
+                    </p>
+                    <Grid container margin='1rem 0rem' spacing={2}>
                         <Grid item md={8}>
                             {hospitals.map((hosp)=>(<HospitalCard name={hosp['Hospital Name']} address={hosp['Address']} type={hosp['Hospital Type']}/>))}
                         </Grid>
-                        <Grid item md={4}>
-
+                        <Grid item md={4} display='flex'>
+                            <Box borderRadius={12} margin='1rem' padding='0rem 1rem'>
+                                <img src={offer} alt='offer' style={{width:'80%', height:'auto'}}/>
+                            </Box>
                         </Grid>
                     </Grid>
                 </Box>
