@@ -1,6 +1,5 @@
 
 import HeroSection from "../components/HeroSection";
-import NavBar from "../components/NavBar";
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
@@ -42,7 +41,6 @@ export default function HomePage(){
     return (
         <div >
             <SnackbarProvider/>
-            <NavBar/>
             <HeroSection 
                 topText='Skip the travel! Find Online'
                 middleNormal='Medical'

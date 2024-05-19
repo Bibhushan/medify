@@ -1,7 +1,10 @@
 import { Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { MedifyBlueButton, MedifyLogo, MedifyTransparentButton } from './CustomComponents';
 
 export default function NavBar(){
+
+    const navigate = useNavigate();
 
     return (
         <Box display='flex' justifyContent='space-between' alignItems='center' style={{padding:'1rem 2rem'}}>
@@ -12,7 +15,7 @@ export default function NavBar(){
                 <MedifyTransparentButton>Medicines</MedifyTransparentButton>
                 <MedifyTransparentButton>Surgeries</MedifyTransparentButton>
                 <MedifyTransparentButton>Software for Providers</MedifyTransparentButton>
-                <MedifyBlueButton>My Bookings</MedifyBlueButton>
+                <MedifyBlueButton onClick={()=>navigate('/bookings')}>My Bookings</MedifyBlueButton>
             </div>
         </Box>
     )

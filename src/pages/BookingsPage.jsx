@@ -1,52 +1,29 @@
 import { Box, Grid } from "@mui/material";
-import axios from "axios";
-import { enqueueSnackbar } from "notistack";
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import HospitalCard from "../components/HospitalCard";
+import HospitalList from "../components/HospitalList";
 import SearchControls from "../components/SearchControls";
-import offer from '../assets/offers/Offer1.png';
+// import axios from "axios";
+// import { enqueueSnackbar } from "notistack";
+// import { useState, useEffect } from "react";
+// import { useLocation } from "react-router-dom";
+// import HospitalCard from "../components/HospitalCard";
+// import SearchControls from "../components/SearchControls";
+// import offer from '../assets/offers/Offer1.png';
 
-export default function SearchResults(){
-
-    const location = useLocation();
-
-    const [hospitals, setHospitals] = useState([]);
-
-    const fetchHospitals = async(stateName, cityName)=>{
-        try{
-            const fetchHospitals = await axios.get(`https://meddata-backend.onrender.com/data?state=${stateName}&city=${cityName}`)
-            console.log('hospital data: ', fetchHospitals.data);
-            setHospitals(fetchHospitals.data);
-        }
-        catch (e){
-            enqueueSnackbar('Error occured when fetching hospital data.', {variant:'error'})
-        }
-    }
-
-    useEffect(()=>{
-        console.log(JSON.stringify(location));
-        fetchHospitals(location.state.stateName, location.state.cityName);
-    }, [location])
-
-    // const stateHandler = (state)=>{
-    //     setStateName(state);
-    //     setCityName(null);
-    // }
-
-    // const cityHandler = (city)=>{
-    //     setCityName(city);
-    // }
-
-    // const searchHandler = ()=>{
-    //     fetchHospitals();
-    // }
-    
+export default function BookingsPage(){
+  
     return (
         <Box>
-            <Box sx={{height:80, background: 'linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%)', padding:0, borderRadius:'0px 0px 16px 16px'}}/>            
-        
-            <Box padding='1rem'>
+            <Box 
+                sx={{
+                    height:80, 
+                    background: 'linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%)', 
+                    padding:0, 
+                    borderRadius:'0px 0px 16px 16px',
+                    alignItems:'center'}}>
+                <p style={{textAlign:'left', fontSize:30, fontWeight:700, color:'white', padding:'1rem', margin:0}}>My Bookings</p>
+            </Box>
+            <HospitalList hospitals={[]}/>       
+            {/* <Box padding='1rem'>
                 <SearchControls location={location.state} openSearchPage={false}/>
                 {hospitals.length > 0 && 
                     <Box textAlign='left'>
@@ -76,7 +53,7 @@ export default function SearchResults(){
                         </Grid>
                     </Box>
                 }
-            </Box>
+            </Box> */}
         </Box>
     )
 }

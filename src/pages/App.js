@@ -5,6 +5,8 @@ import './App.css';
 import HomePage from './HomePage.jsx';
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import SearchResults from './SearchResults';
+import NavBar from '../components/NavBar';
+import BookingsPage from './BookingsPage';
 
 function App() {
 
@@ -16,9 +18,11 @@ function App() {
               so we follow the best practices for cleanliness.
           </p>
         </div>
+        <NavBar/>            
         <Routes>
           <Route exact path='/' element={<HomePage/>}/>
           <Route path='/search' element={<SearchResults/>}/>
+          <Route path='/bookings' element={<BookingsPage />}/>
         </Routes>
         <FAQ/>      
         <AppDownload />

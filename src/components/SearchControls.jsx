@@ -62,7 +62,7 @@ export default function SearchControls({location={stateName:null, cityName:null}
     }
 
     return(
-        <Box display='flex' justifyContent='space-around' alignItems='center' margin='6px'>
+        <Box display='flex' justifyContent='space-around' alignItems='center' margin='6px' borderRadius='8px' sx={{backgroundColor:'white'}}>
             <Autocomplete 
                 options={stateNames}
                 renderInput={(params) => <TextField {...params} label="State" />}
