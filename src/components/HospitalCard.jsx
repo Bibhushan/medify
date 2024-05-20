@@ -3,7 +3,9 @@ import { useState } from "react";
 import hospital2 from '../assets/icons/hospital2.png';
 import { MedifyBlueButton } from "./CustomComponents";
 import './styles.css';
-import TimeSelector from "./TimeSelector";
+import TimeSelector from "./DateTimeSelector";
+import useLocalStorage from 'use-local-storage';
+import {enqueueSnackbar } from 'notistack';
 
 var options = { year: 'numeric', month: 'long', day: 'numeric' };
 
@@ -14,15 +16,28 @@ const formatDate =(dateString)=>{
 
 export default function HospitalCard({name, address, city, state, zipCode, rating, isBooking=false, bookingDate=Date(), bookingTime='09:00 AM'}){
 
-    const [isTimeSelectorOpen, setIsTimeSelectorOpen] = useState(false);
+    const [isDateTimeSelectorOpen, setIsDateTimeSelectorOpen] = useState(false);
 
-    const openTimeSelector = ()=> {
-        if (!isTimeSelectorOpen) setIsTimeSelectorOpen(true)
+    const [bookings, setBookings] = useLocalStorage('bookings', []);
+
+    const openDateTimeSelector = ()=> {
+        if (!isDateTimeSelectorOpen) setIsDateTimeSelectorOpen(true)
     }
 
-    const timeSelectionHandler = (selectedSlot)=>{
-        console.log('time slot selected:', selectedSlot);
-        setIsTimeSelectorOpen(false);
+    const timeSelectionHandler = (selectedDate, selectedSlot)=>{
+        console.log('time slot selected:', selectedDate, selectedSlot);
+        setBookings([...bookings, {
+            name:name,
+            address:address,
+            city: city,
+            state: state, 
+            zipCode:zipCode,
+            rating: rating,
+            bookingDate: selectedDate,
+            bookingTime:selectedSlot
+        }])        
+        enqueueSnackbar(`Booking successful on ${selectedDate} at ${selectedSlot}`, {variant:'success'});
+        setIsDateTimeSelectorOpen(false);
     }
 
     return(
@@ -60,7 +75,7 @@ export default function HospitalCard({name, address, city, state, zipCode, ratin
                         {isBooking || 
                             <Box>
                                 <p style={{fontSize:14, fontWeight:500, color:'#01A400', margin:'0.25rem'}}>Available Today</p>
-                            <MedifyBlueButton fontSize={14} visibility={isBooking ? 'hidden' : 'visible'} onClick={openTimeSelector}>
+                            <MedifyBlueButton fontSize={14} visibility={isBooking ? 'hidden' : 'visible'} onClick={openDateTimeSelector}>
                                     Book FREE Center Visit
                                 </MedifyBlueButton>
                             </Box>
@@ -68,7 +83,7 @@ export default function HospitalCard({name, address, city, state, zipCode, ratin
                     </Box>
                 </Grid>
             </Grid>
-            {isTimeSelectorOpen && 
+            {isDateTimeSelectorOpen && 
                 <Box backgroundColor='white'>
                     <TimeSelector onClickHandler={timeSelectionHandler}/>
                 </Box>

@@ -10,8 +10,8 @@ export default function NavBar(){
         <Box display='flex' justifyContent='space-between' alignItems='center' style={{padding:'1rem 2rem'}}>
             <MedifyLogo/>            
             <div style={{display:'inherit'}}>
-                <MedifyTransparentButton>Find Doctors</MedifyTransparentButton>
-                <MedifyTransparentButton>Hospitals</MedifyTransparentButton>
+                <MedifyTransparentButton onClick={()=>navigate('/')}>Find Doctors</MedifyTransparentButton>
+                <MedifyTransparentButton onClick={()=>navigate('/search')}>Hospitals</MedifyTransparentButton>
                 <MedifyTransparentButton>Medicines</MedifyTransparentButton>
                 <MedifyTransparentButton>Surgeries</MedifyTransparentButton>
                 <MedifyTransparentButton>Software for Providers</MedifyTransparentButton>

@@ -1,6 +1,8 @@
-import { Box, Grid } from "@mui/material";
+import { Box } from "@mui/material";
+import { enqueueSnackbar } from "notistack";
+import { useEffect, useState } from "react";
 import HospitalList from "../components/HospitalList";
-import SearchControls from "../components/SearchControls";
+// import SearchControls from "../components/SearchControls";
 // import axios from "axios";
 // import { enqueueSnackbar } from "notistack";
 // import { useState, useEffect } from "react";
@@ -11,6 +13,18 @@ import SearchControls from "../components/SearchControls";
 
 export default function BookingsPage(){
   
+    const [bookings, setBookings] = useState([]);
+
+    useEffect(()=>{
+        let bookData = localStorage.getItem('bookings');
+        if (bookData !== null){
+            setBookings(JSON.parse(bookData));
+        }
+        else {
+            enqueueSnackbar('No bookings available', {variant:'info'})
+        }
+    }, [])
+
     return (
         <Box>
             <Box 
@@ -22,7 +36,7 @@ export default function BookingsPage(){
                     alignItems:'center'}}>
                 <p style={{textAlign:'left', fontSize:30, fontWeight:700, color:'white', padding:'1rem', margin:0}}>My Bookings</p>
             </Box>
-            <HospitalList hospitals={[]}/>       
+            <HospitalList hospitals={bookings} isBooking={true}/>       
             {/* <Box padding='1rem'>
                 <SearchControls location={location.state} openSearchPage={false}/>
                 {hospitals.length > 0 && 

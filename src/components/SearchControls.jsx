@@ -10,9 +10,9 @@ export default function SearchControls({location={stateName:null, cityName:null}
     const navigate = useNavigate(null);
    
     const [stateNames, setStateNames] = useState([]);
-    const [stateName, setStateName] = useState(location.stateName);
+    const [stateName, setStateName] = useState(null);
     const [cityNames, setCityNames] = useState([]);
-    const [cityName, setCityName] = useState(location.cityName);
+    const [cityName, setCityName] = useState(null);
 
    const handleStateSelect =(event, newState)=>{
         setStateName(newState);
@@ -39,7 +39,7 @@ export default function SearchControls({location={stateName:null, cityName:null}
     }, []);
 
     useEffect(()=>{
-        setCityName(null);
+        // setCityName(null);
         fetchCityNames();
     }, [stateName])
 

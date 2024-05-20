@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button } from "@mui/material";
+import { Button, Tab } from "@mui/material";
 import medifyLogo from '../assets/medify-logo.png';
 
 const MedifyBlueButton = styled(Button)({
@@ -23,6 +23,13 @@ const MedifyTransparentButton = styled(Button)({
     margin: '0.25rem'
 })
 
+const MedifyTab = styled(Tab)({
+    textTransform:'none',
+    '&:selected':{
+        borderBottom:'4px solid #F0F0F5'
+    }
+})
+
 const MedifyLogo = ()=>{
     return(
         <div style={{display:'flex'}}>
@@ -44,4 +51,4 @@ const SocialMediaLogo = ({logo, logoName})=>{
     )
 }
 
-export { MedifyBlueButton, MedifyTransparentButton, MedifyLogo, Copyright, SocialMediaLogo };
+export { MedifyBlueButton, MedifyTransparentButton, MedifyTab, MedifyLogo, Copyright, SocialMediaLogo };
