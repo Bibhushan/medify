@@ -7,6 +7,7 @@ import SearchHospitals from "../components/SearchHospitals";
 import useLocalStorage from 'use-local-storage';
 import OffersSwiper from "../components/OffersSwiper";
 import SearchSpecialization from "../components/SearchBySpecialization";
+import DoctorSwiper from "../components/DoctorsSwiper";
 
 export default function HomePage(){
 
@@ -49,6 +50,7 @@ export default function HomePage(){
                 onSearch={openSearch}
             />
             <OffersSwiper/>
+            <DoctorSwiper />
             <SearchSpecialization />
             <SearchHospitals isOpen={isSearchOpen} handleCancel={closeSearch} stateNames={stateNames}/>
         </div>
