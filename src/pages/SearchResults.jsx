@@ -1,11 +1,9 @@
-import { Box, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 import axios from "axios";
 import { enqueueSnackbar, SnackbarProvider } from "notistack";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import HospitalCard from "../components/HospitalCard";
 import SearchControls from "../components/SearchControls";
-import offer from '../assets/offers/Offer1.png';
 import HospitalList from "../components/HospitalList";
 
 export default function SearchResults(){

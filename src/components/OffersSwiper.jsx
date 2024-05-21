@@ -30,6 +30,7 @@ export default function OffersSwiper(){
                 spaceBetween={50}
                 slidesPerView={3}
                 navigation
+                showPagination = {true}
                 pagination={{ clickable: true }}
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
