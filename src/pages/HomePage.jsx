@@ -10,6 +10,7 @@ import SearchSpecialization from "../components/SearchBySpecialization";
 import DoctorSwiper from "../components/DoctorsSwiper";
 import PatientCaring from "../components/PatientCaring";
 import News from "../components/News";
+import KPIs from "../components/KPIs";
 
 export default function HomePage(){
 
@@ -55,7 +56,8 @@ export default function HomePage(){
             <SearchSpecialization />
             <DoctorSwiper />   
             <PatientCaring /> 
-            <News />        
+            <News />
+            <KPIs />        
             <SearchHospitals isOpen={isSearchOpen} handleCancel={closeSearch} stateNames={stateNames}/>
         </div>
     )
